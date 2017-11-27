@@ -8,9 +8,13 @@ var app = new Vue({
             { title: 'Item3', quantity: 0, price: 9.99},
             { title: 'Item3', quantity: 0, price: 9.99}
         ],
-        cart: []
+        cart: [],
+        search: ''
     },
     methods: {
+        onSubmit: function(e) {
+            console.log(this.search);
+        },
         addItem: function(index){
             let item = this.items[index];
             item.quantity ? item.quantity : item.quantity = 1;
