@@ -12,15 +12,14 @@ var app = new Vue({
     },
     methods: {
         addItem: function(index){
-            var item = this.items[index];
+            let item = this.items[index];
             item.quantity ? item.quantity : item.quantity = 1;
-            added = false;
-            this.cart.forEach(el => {
-                if (this.items[index] === el) {
-                    el.quantity += 1;
-                    added = true;
-                } 
-            });
+            added = this.cart.some(el => {
+                        if (this.items[index] === el) {
+                            el.quantity += 1;
+                            return true;
+                        }
+                    });
             if (!added) {
                 this.cart.push(this.items[index]);
             }
