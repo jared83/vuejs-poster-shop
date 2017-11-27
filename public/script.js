@@ -36,12 +36,12 @@ var app = new Vue({
         dec: function(item){
             if (item.quantity > 1) {
                 item.quantity--;
-                this.total -= item.price;
             }else {
                 let index = this.cart.indexOf(item);
                 item.quantity = 0;
                 this.cart.splice(index, 1);
             }
+            this.total -= item.price;
         }
     }, 
     filters: {
