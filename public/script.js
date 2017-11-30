@@ -3,15 +3,18 @@ var app = new Vue({
     data: {
         total: 0,
         items: [
-            { title: 'Item1', quantity: 0, price: 9.99},
-            { title: 'Item2', quantity: 0, price: 9.99},
-            { title: 'Item3', quantity: 0, price: 9.99},
-            { title: 'Item3', quantity: 0, price: 9.99}
+            { title: 'Item2', quantity: 0, price: 9.99, imgUrl: '/public/MeHQ.jpg', desc: 'It is me!!!!'},
+            { title: 'Item1', quantity: 0, price: 9.99, imgUrl: '/public/MeHQ.jpg', desc: 'It is me!!!!'},
+            { title: 'Item3', quantity: 0, price: 9.99, imgUrl: '/public/MeHQ.jpg', desc: 'It is me!!!!'},
+            { title: 'Item3', quantity: 0, price: 9.99, imgUrl: '/public/MeHQ.jpg', desc: 'It is me!!!!'}
         ],
         cart: [],
         search: ''
     },
     methods: {
+        getImages: (img, desc) => {
+            console.log(img + ' ' + desc);
+        },
         onSubmit: function(e) {
             console.log(this.search);
         },

@@ -17,7 +17,10 @@ button:focus, input:focus {
     cursor: pointer;
     opacity: 1;
 }
-
+.cart-item > .btn {
+    padding: 10px 15px;
+    float: right;
+}
 .btn:active {
     opacity: 0.8;
 }
