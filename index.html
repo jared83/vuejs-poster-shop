@@ -25,6 +25,7 @@
     </div>
     <div class="main">
         <div class="products">
+            <div v-if="!found && lastSearch && search">Loading...</div>
             <div class="search-results" v-if="found">Found {{ items.length }} results for search in {{ lastSearch }}</div>
             <div class="product" v-for="(item, index) in items">
                 <div>
