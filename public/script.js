@@ -4,14 +4,14 @@ var app = new Vue({
         total: 0,
         items: [],
         cart: [],
-        newSearch: '',
+        newSearch: 'vue.js',
         lastSearch: '',
         found: false
     },
+    mounted: function() {
+        this.find();
+    },
     methods: {
-        getImages: (img, desc) => {
-            console.log(img + ' ' + desc);
-        },
         find: function(e) {
             this.items = [];
             this.found = false;
