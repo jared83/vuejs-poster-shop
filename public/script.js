@@ -2,21 +2,30 @@ var app = new Vue({
     el: '#app',
     data: {
         total: 0,
-        items: [
-            { title: 'Item2', quantity: 0, price: 9.99, imgUrl: '/public/MeHQ.jpg', desc: 'It is me!!!!'},
-            { title: 'Item1', quantity: 0, price: 9.99, imgUrl: '/public/MeHQ.jpg', desc: 'It is me!!!!'},
-            { title: 'Item3', quantity: 0, price: 9.99, imgUrl: '/public/MeHQ.jpg', desc: 'It is me!!!!'},
-            { title: 'Item3', quantity: 0, price: 9.99, imgUrl: '/public/MeHQ.jpg', desc: 'It is me!!!!'}
-        ],
+        items: [],
         cart: [],
-        search: ''
+        newSearch: '',
+        lastSearch: '',
+        found: false
     },
     methods: {
         getImages: (img, desc) => {
             console.log(img + ' ' + desc);
         },
-        onSubmit: function(e) {
-            console.log(this.search);
+        find: function(e) {
+            this.items = [];
+            this.found = false;
+            this.$http
+            .get('search/'.concat(this.newSearch))
+            .then(res => {
+                console.log(res.data);
+                this.lastSearch = this.newSearch;
+                this.items = res.data;
+                this.items.forEach((element,index) => {
+                    element.price = 9.99+index;
+                });
+                this.found = true;
+            })
         },
         addItem: function(index){
             let item = this.items[index];
