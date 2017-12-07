@@ -26,6 +26,7 @@ button:focus, input:focus {
 }
 
 [v-cloak] {
+    /* hide till done rendering */
     display: none !important;
 }
 
